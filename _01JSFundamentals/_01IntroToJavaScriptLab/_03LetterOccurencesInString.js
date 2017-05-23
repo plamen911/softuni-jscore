@@ -5,7 +5,7 @@ function letterOccurences(text, letter) {
             count++;
         }
     }
-    console.log(count);
+    return count;
 }
 
 // letterOccurences('hello', 'l');
