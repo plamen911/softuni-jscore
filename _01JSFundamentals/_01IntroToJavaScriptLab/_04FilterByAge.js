@@ -4,11 +4,18 @@ function filterByAge(minimumAge, firstPersonName, firstPersonAge, secondPersonNa
     let people = [];
     people.push({name: firstPersonName, age: firstPersonAge});
     people.push({name: secondPersonName, age: secondPersonAge});
-    for (let person of people) {
-        if (person.age >= minimumAge) {
-            console.log(person);
-        }
-    }
+    // for (let person of people) {
+    //     if (person.age >= minimumAge) {
+    //         console.log(person);
+    //     }
+    // }
+    people
+        .filter(function (p) {
+            return p.age >= minimumAge;
+        })
+        .forEach(function (p) {
+            console.log(p);
+        });
 }
 
 // filterByAge(12, 'Ivan', 15, 'Asen', 9);
