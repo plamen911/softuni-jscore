@@ -9,6 +9,13 @@ sudo n latest
 node -v
 ```
 
+```
+Number((5 / 3).toFixed(2))
+>> 1.67
+Math.round((5 / 3) * 100) / 100
+>> 1.67
+```
+
 
 
 
