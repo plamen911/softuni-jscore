@@ -1,3 +1,4 @@
+'use strict';
 // https://judge.softuni.bg/Contests/Compete/Index/287#6
 
 function getNextDay(year, month, day) {
