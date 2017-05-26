@@ -16,6 +16,25 @@ Math.round((5 / 3) * 100) / 100
 >> 1.67
 ```
 
+```
+[principal, interestRate, compoundingPeriod, timespan] = [principal, interestRate, compoundingPeriod, timespan].map(Number);
+
+var tagNames = articleArgs.tagNames.split(/\s+|,/).filter(function(tag){return tag;});
+
+var tagNames = article.tags.map(function(tag){return tag.name;});
+
+var extension = filename.split(/[. ]+/).pop();
+
+var newRoles = roles
+    .filter(function(role) {  return userArgs.roles.indexOf(role.name) !== -1;  })
+    .map(function(role) {  return role.id;  });
+
+fs.readdirSync('./models')
+	.filter(function(file) { return file.indexOf('-model') !== -1; })
+	.forEach(function(file) { require(file); });
+
+```
+
 
 
 
