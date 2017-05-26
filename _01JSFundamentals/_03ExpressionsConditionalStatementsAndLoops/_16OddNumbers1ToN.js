@@ -1,5 +1,5 @@
 'use strict';
-// https://judge.softuni.bg/Contests/Compete/Index/308#16
+// https://judge.softuni.bg/Contests/Compete/Index/308#17
 
 function solve(n) {
     for (let i = 1; i <= n; i += 2) {
