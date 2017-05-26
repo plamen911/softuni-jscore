@@ -36,4 +36,4 @@ function solve(n) {
     console.log(line);
 }
 
-solve(4);
+// solve(4);
