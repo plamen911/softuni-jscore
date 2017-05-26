@@ -1,16 +1,15 @@
 'use strict';
 // https://judge.softuni.bg/Contests/Compete/Index/308#4
 
-function solve(grads) {
-    if (grads > 360) {
-        grads = grads % 360;
-    } else if (grads < 0) {
-        //grads = Math.abs(grads) % 360;
-        grads = 360 - grads;
-    }
-    let rads = (360 / 400) * grads;
+function solve(grad) {
+    let diffDeg = 400 / 360;
+    let convertGradToDeg = Number(grad) / diffDeg;
+    convertGradToDeg = convertGradToDeg % 360;
 
-    return rads;
+    if (convertGradToDeg < 0) {
+        convertGradToDeg += 360;
+    }
+    console.log(convertGradToDeg)
 }
 
-console.log(solve(400));
+// console.log(solve(850));
