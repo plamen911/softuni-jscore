@@ -27,4 +27,4 @@ function solve(input) {
     console.log(concat(input));
 }
 
-solve([1, 2, 3]);
+// solve([1, 2, 3]);
