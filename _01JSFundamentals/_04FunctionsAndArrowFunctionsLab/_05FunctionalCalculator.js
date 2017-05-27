@@ -14,21 +14,24 @@ function solve(a, b, op) {
     let subtract = (a, b) => {
         return a - b;
     };
+    let calc = (a, b, cb) => {
+        return cb(a, b);
+    };
 
     switch (op) {
         case '*':
-            console.log(multiply(a, b));
+            console.log(calc(a, b, multiply));
             break;
         case '/':
-            console.log(divide(a, b));
+            console.log(calc(a, b, divide));
             break;
         case '+':
-            console.log(sum(a, b));
+            console.log(calc(a, b, sum));
             break;
         case '-':
-            console.log(subtract(a, b));
+            console.log(calc(a, b, subtract));
             break;
     }
 }
 
-// solve(2, 4, '+');
+solve(2, 4, '+');
