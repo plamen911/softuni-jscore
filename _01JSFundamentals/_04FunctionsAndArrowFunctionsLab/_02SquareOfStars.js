@@ -1,7 +1,7 @@
 'use strict';
 // https://judge.softuni.bg/Contests/Compete/Index/306#1
 
-function solve(n) {
+function solve(n = 5) {
     if (n == 1) return '*';
 
     for (let i = 1; i <= n; i++) {
