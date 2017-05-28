@@ -17,4 +17,4 @@ function solve(quiz) {
     console.log(xml);
 }
 
-solve(["Who was the forty-second president of the U.S.A.?", "William Jefferson Clinton"]);
+// solve(["Who was the forty-second president of the U.S.A.?", "William Jefferson Clinton"]);
