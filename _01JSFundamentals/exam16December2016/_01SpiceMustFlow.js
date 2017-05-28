@@ -6,7 +6,7 @@ function solve(startingYield) {
     let total = 0;
     let days = 0;
 
-    while(startingYield >= 100) {
+    while (startingYield >= 100) {
         days++;
         total += startingYield;
         startingYield -= 10;
@@ -19,4 +19,4 @@ function solve(startingYield) {
     console.log(total);
 }
 
-solve(111);
+//solve(111);
