@@ -17,7 +17,7 @@ Math.round((5 / 3) * 100) / 100
 ```
 
 ```
-[principal, interestRate, compoundingPeriod, timespan] = [principal, interestRate, compoundingPeriod, timespan].map(Number);
+let [principal, interestRate, compoundingPeriod, timespan] = [principal, interestRate, compoundingPeriod, timespan].map(Number);
 
 var tagNames = articleArgs.tagNames.split(/\s+|,/).filter(function(tag){return tag;});
 
@@ -33,6 +33,25 @@ fs.readdirSync('./models')
 	.filter(function(file) { return file.indexOf('-model') !== -1; })
 	.forEach(function(file) { require(file); });
 
+```
+
+Promise usage
+```
+function getSuperheroById(id) {
+    return new Promise((resolve, reject) => {
+        Superhero.findOne({_id: id}, (err, superhero) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(superhero);
+        });
+    });
+}
+//
+getSuperheroById(req.params.id)
+    .then(superhero => {
+        //
+    });
 ```
 
 
