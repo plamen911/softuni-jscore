@@ -1,5 +1,5 @@
 "use strict";
-// https://judge.softuni.bg/Contests/Compete/Index/311#5
+// https://judge.softuni.bg/Contests/Compete/Index/311#6
 
 function solve(arr) {
     let result = arr
