@@ -54,6 +54,22 @@ getSuperheroById(req.params.id)
     });
 ```
 
+Get max element in array
+
+`Math.max.apply(null, [3, 10, -1]);`
+
+Matrix to array
+
+```
+let matrix = [
+                ['2', '3', '4', '7', '0'],
+                ['4', '0', '5', '3', '4'],
+                ['2', '3', '5', '4', '2'],
+                ['9', '8', '7', '5', '4']   
+             ];
+console.log(matrix.reduce((row1, row2) => row1.concat(row2)));
+```
+
 
 
 
