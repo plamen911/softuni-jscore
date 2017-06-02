@@ -70,6 +70,9 @@ let matrix = [
 console.log(matrix.reduce((row1, row2) => row1.concat(row2)));
 ```
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+
 
 
 
