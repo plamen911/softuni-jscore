@@ -1,17 +1,11 @@
 "use strict";
 // https://judge.softuni.bg/Contests/Compete/Index/312#12
 
-function solve(str) {
-    const regex = /[\s|\.|,]([0-9]{1,2}\-[A-Z]{3}\-[0-9]{4})[\s|\.|,]/gi;
-    let m;
-
-    while ((m = regex.exec(str)) !== null) {
-        if (m.index === regex.lastIndex) {
-            regex.lastIndex++;
-        }
-
-        let arr = m[1].split('-');
-        console.log(`${m[1]} (Day: ${arr[0]}, Month: ${arr[1]}, Year: ${arr[2]})`);
+function solve(text) {
+    let pattern = /\b([0-9]{1,2})-([A-Z][a-z]{2})-([0-9]{4})\b/g;
+    let match;
+    while (match = pattern.exec(text)) {
+        console.log(`${match[0]} (Day: ${match[1]}, Month: ${match[2]}, Year: ${match[3]})`);
     }
 }
 
