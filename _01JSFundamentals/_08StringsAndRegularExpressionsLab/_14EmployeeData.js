@@ -2,7 +2,7 @@
 // https://judge.softuni.bg/Contests/Compete/Index/312#13
 
 function solve(input) {
-    let regex = /^([A-Z][a-zA-Z]*) \- ([1-9][0-9]*) \- ([a-zA-Z0-9 -]+)$/;
+    let regex = /^([A-Z][a-zA-Z]*) - ([1-9][0-9]*) - ([a-zA-Z0-9 -]+)$/;
 
     for (let data of input) {
         let match = regex.exec(data);
