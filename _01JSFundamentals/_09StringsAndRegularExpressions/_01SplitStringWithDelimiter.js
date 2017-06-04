@@ -1,5 +1,5 @@
 "use strict";
-// https://judge.softuni.bg/Contests/Compete/Index/312#0
+// https://judge.softuni.bg/Contests/Compete/Index/314#0
 
 function solve(string, delimiter) {
     string.toString().split(delimiter).forEach(a => console.log(a));
