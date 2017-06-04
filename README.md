@@ -72,7 +72,13 @@ console.log(matrix.reduce((row1, row2) => row1.concat(row2)));
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
+RegExp.escape function in Javascript
 
+```
+RegExp.escape = (s) =>  {
+    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+};
+```
 
 
 
