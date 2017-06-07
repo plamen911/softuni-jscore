@@ -80,6 +80,59 @@ RegExp.escape = (s) =>  {
 };
 ```
 
+Look ahead
 
+```
+$re = '/([A-Za-z]+)([\d]+)(?=\s|$)/';
+$str = 'Word98 ';
 
+preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
+
+// Print the entire match result
+var_dump($matches);
+```
+
+Look behind
+
+```
+$re = '/(?<=\s)([A-Za-z]+)([\d]+)/';
+$str = ' Word98';
+
+preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
+
+// Print the entire match result
+var_dump($matches);
+```
+
+Negative look behind/ahead
+
+```
+$re = '/(?<!\s)\b([A-Za-z]+)([\d]+)\b/';
+$str = 'Word98';
+
+preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
+
+// Print the entire match result
+var_dump($matches);
+```
+
+Non-capturing groups
+
+```
+const regex = /([A-Za-z]+)([\d]+)(?:\s+)/g;
+const str = `Word98 `;
+let m;
+
+while ((m = regex.exec(str)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+    }
+    
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
+        console.log(`Found match, group ${groupIndex}: ${match}`);
+    });
+}
+```
 

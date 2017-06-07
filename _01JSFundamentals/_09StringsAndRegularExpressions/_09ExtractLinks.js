@@ -1,5 +1,5 @@
 'use strict';
-// https://judge.softuni.bg/Contests/Compete/Index/314#7
+// https://judge.softuni.bg/Contests/Compete/Index/314#8
 
 function solve(str) {
     const regex = /www\.[A-Za-z0-9-]+(\.[a-z]+)+/gi;
