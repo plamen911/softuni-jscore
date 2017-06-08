@@ -76,7 +76,15 @@ RegExp.escape function in Javascript
 
 ```
 RegExp.escape = (s) =>  {
-    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    return s.toString().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+};
+
+String.prototype.htmlEscape = function () {
+    return this.replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 };
 ```
 
