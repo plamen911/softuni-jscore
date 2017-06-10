@@ -2,56 +2,40 @@
 // https://judge.softuni.bg/Contests/Compete/Index/316#5
 
 function solve(input) {
-    let sys = {};
-    let systemsWithComponents = {};
+    let sys = new Map();
     input.forEach(a => {
         let [systemName, componentName, subcomponentName] = a.split(' | ');
-        if (!sys.hasOwnProperty(systemName)) {
-            sys[systemName] = {};
-            systemsWithComponents[systemName] = [];
+        if (!sys.has(systemName)) {
+            sys.set(systemName, new Map());
         }
-        if (!sys[systemName].hasOwnProperty(componentName)) {
-            sys[systemName][componentName] = [];
+        if (!sys.get(systemName).has(componentName)) {
+            sys.get(systemName).set(componentName, new Set());
         }
-        sys[systemName][componentName].push(subcomponentName);
-        systemsWithComponents[systemName].push(componentName)
+        sys.get(systemName).get(componentName).add(subcomponentName);
     });
 
-    // sys.sort((a, b) => {
-    //
-    // });
-
-    // console.log(Object.keys(sys));
-
-
-
-    // sys.sort((a, b) => {
-    //
-    // });
-
-    //console.log(sys);
-    //console.log(systemsWithComponents);
-
-    // Array.from(systemsWithComponents).sort((a, b) => {
-    //     console.log('---- ' + a.length)
-    //     return a.length - b.length;
-    // });
-
-    let arr = [];
-    for (let a in systemsWithComponents) {
-        arr.push([a, systemsWithComponents[a].length]);
-    }
-    // arr.sort((a, b) => {
-    //
-    // });
-
-    console.log(arr);
-
-    // systemsWithComponents.sort((a, b) => {
-    //    if (a.length === b.length) {
-    //
-    //    }
-    // });
+    [...sys]
+        .sort((a, b) => {
+            let [aKey, aVal] = [...a];
+            let [bKey, bVal] = [...b];
+            let componentsA = [...aVal].length;
+            let componentsB = [...bVal].length;
+            if (componentsA === componentsB) {
+                return aKey.toString().localeCompare(bKey.toString());
+            }
+            return componentsB - componentsA;
+        })
+        .forEach(a => {
+            let [systemName, components] = [...a];
+            console.log(systemName);
+            [...components].forEach(c => {
+                let [componentName, subcomponents] = [...c];
+                console.log(`|||${componentName}`);
+                [...subcomponents].forEach(s => {
+                    console.log(`||||||${s}`);
+                });
+            });
+        });
 }
 
 solve([
