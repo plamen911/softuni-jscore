@@ -2,40 +2,40 @@
 // https://judge.softuni.bg/Contests/Compete/Index/316#5
 
 function solve(input) {
-    let sys = new Map();
-    input.forEach(a => {
-        let [systemName, componentName, subcomponentName] = a.split(' | ');
-        if (!sys.has(systemName)) {
-            sys.set(systemName, new Map());
+    let systems = new Map();
+    input.forEach(row => {
+        let [system, component, subcomponent] = row.split(' | ');
+        if (!systems.has(system)) {
+            systems.set(system, {});
         }
-        if (!sys.get(systemName).has(componentName)) {
-            sys.get(systemName).set(componentName, new Set());
+        if (!systems.get(system).hasOwnProperty(component)) {
+            systems.get(system)[component] = [];
         }
-        sys.get(systemName).get(componentName).add(subcomponentName);
+        systems.get(system)[component].push(subcomponent);
     });
-
-    [...sys]
-        .sort((a, b) => {
-            let [aKey, aVal] = [...a];
-            let [bKey, bVal] = [...b];
-            let componentsA = [...aVal].length;
-            let componentsB = [...bVal].length;
-            if (componentsA === componentsB) {
-                return aKey.toString().localeCompare(bKey.toString());
-            }
-            return componentsB - componentsA;
-        })
-        .forEach(a => {
-            let [systemName, components] = [...a];
-            console.log(systemName);
-            [...components].forEach(c => {
-                let [componentName, subcomponents] = [...c];
-                console.log(`|||${componentName}`);
-                [...subcomponents].forEach(s => {
-                    console.log(`||||||${s}`);
-                });
+    let systemsSortedKeys = [...systems.keys()].sort(amountOfComponentsThenAlpabeticalSort);
+    systemsSortedKeys.forEach(systemName => {
+        console.log(systemName);
+        let system = systems.get(systemName);
+        let componentsSortedKeys = Object.keys(system).sort((a, b) => {
+            return system[a].length < system[b].length
+        });
+        componentsSortedKeys.forEach(component => {
+            console.log(`|||${component}`);
+            system[component].forEach(subcomponent => {
+                console.log(`||||||${subcomponent}`)
             });
         });
+    });
+
+    function amountOfComponentsThenAlpabeticalSort(a, b) {
+        if (Object.keys(systems.get(a)).length === Object.keys(systems.get(b)).length) {
+            if (a > b) return 1;
+            if (a < b) return -1;
+        } else {
+            return Object.keys(systems.get(a)).length < Object.keys(systems.get(b)).length;
+        }
+    }
 }
 
 solve([
