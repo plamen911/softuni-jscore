@@ -144,3 +144,30 @@ while ((m = regex.exec(str)) !== null) {
 }
 ```
 
+Sort map
+
+```
+var map = new Map();
+map.set('2-1', "foo");
+map.set('0-1', "bar");
+map.set('3-1', "baz");
+
+var mapAsc = new Map([...map.entries()].sort());
+```
+
+Sort strings with `localCompare()`
+
+```
+function solve(input) {
+    let usernames = new Set();
+    input.forEach(a => usernames.add(a));
+    Array.from(usernames).sort((a, b) => {
+        if (a.length - b.length === 0) {
+            return a.localeCompare(b);
+        }
+        return a.length - b.length;
+    }).forEach(a => console.log(a));
+}
+```
+
+
