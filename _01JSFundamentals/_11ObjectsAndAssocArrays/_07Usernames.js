@@ -1,5 +1,5 @@
 "use strict";
-// https://judge.softuni.bg/Contests/Compete/Index/316#5
+// https://judge.softuni.bg/Contests/Compete/Index/316#6
 
 function solve(input) {
     let usernames = new Set();
