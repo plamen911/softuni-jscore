@@ -1,22 +1,28 @@
 "use strict";
 
-function solve(startingYield) {
-    startingYield = Number(startingYield);
-
+function solve(startingValue) {
+    startingValue = Number(startingValue);
+    let theSpice = startingValue;
+    let theYield = startingValue;
     let total = 0;
     let days = 0;
 
-    while (startingYield >= 100) {
+    while (theYield >= 100) {
+        theSpice = theYield - 26;
+        theYield -= 10;
+
+        total += theSpice;
         days++;
-        total += startingYield;
-        startingYield -= 10;
-        total -= 26;
     }
+
     total -= 26;
-    if (total < 0) total = 0;
+    if (total < 0) {
+        total = 0;
+    }
 
     console.log(days);
     console.log(total);
 }
 
-//solve(111);
+// solve(111);
+solve(450);
