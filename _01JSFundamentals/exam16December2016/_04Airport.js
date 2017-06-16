@@ -6,6 +6,7 @@ function solve(input) {
 	let airports = {};
 
     for (let i = 0; i < input.length; i++) {
+        if (!input[i]) continue;
         let [planeID, town, passengersCount, action] = input[i].trim().split(/\s+/);
         passengersCount = Number(passengersCount);
 
