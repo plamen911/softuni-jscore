@@ -124,7 +124,7 @@ function solve(str) {
     }
 }
 
-solve(`<message to="Alice" from="Charlie"><img src="fox.jpg"/></message><meta version="2"/>`);
+//solve(`<message to="Alice" from="Charlie"><img src="fox.jpg"/></message><meta version="2"/>`);
 
 // solve(`<message to="Bob" from="Alice" timestamp="1497254114">Same old, same old
 // Let's go out for a beer</message>`);
@@ -134,3 +134,5 @@ solve(`<message to="Alice" from="Charlie"><img src="fox.jpg"/></message><meta ve
 
 // solve(`<message to="Bob" from="Alice" timestamp="1497254114">Same old, same old
 // Let's go out for a beer</message>`);
+
+solve(`<message from="Alice" timestamp="1497254112">Same old, same old</message>`);
