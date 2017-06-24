@@ -38,7 +38,7 @@
             });
 
             i.addEventListener('blur', (event) => {
-                event.target.parentNode.className = '';
+                event.target.parentNode.removeAttribute('class');
             })
         });
     }
