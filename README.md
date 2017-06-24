@@ -170,4 +170,6 @@ function solve(input) {
 }
 ```
 
+`Math.trunc(...)` - like Math.floor for positive numbers, and like Math.ceil for negative
+
 
