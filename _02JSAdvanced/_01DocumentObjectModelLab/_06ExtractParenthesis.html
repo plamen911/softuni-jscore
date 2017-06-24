@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<p id="content">-->
+        <!--Rakiya (Bulgarian brandy) is home-made liquor (alcoholic) drink.-->
+        <!--it can be made of grapes, plums or other fruits (even apples).-->
+    <!--</p>-->
+    <p id="content">
+        This is some text. (this must be extracted). Some more text. (some more extract)
+    </p>
+    <script>window.onload = function() { extract('content'); }</script>
+<script>
+    function extract(idName) {
+        let textNode = document.getElementById(idName);
+        if (textNode !== null) {
+            let str = textNode.innerHTML;
+
+            const regex = /\((.*?)\)/g;
+            let m;
+            let result = [];
+
+            while ((m = regex.exec(str)) !== null) {
+                // This is necessary to avoid infinite loops with zero-width matches
+                if (m.index === regex.lastIndex) {
+                    regex.lastIndex++;
+                }
+
+                result.push(m[1]);
+            }
+
+            return result.join('; ');
+        }
+    }
+</script>
+</body>
+</html>
