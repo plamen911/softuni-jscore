@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries Table</title>
+    <style>
+        td, th {
+            background: #DDD;
+            padding: 5px 10px
+        }
+
+        input[type='text'] {
+            width: 60px
+        }
+    </style>
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<table id="countriesTable">
+    <tr>
+        <th>Country</th>
+        <th>Capital</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="newCountryText"/></td>
+        <td><input type="text" id="newCapitalText"/></td>
+        <td><a href="#" id="createLink">[Create]</a></td>
+    </tr>
+</table>
+<script>$(() => initializeTable())</script>
+<script>
+    function initializeTable() {
+        let countries = {
+            'Bulgaria': 'Sofia',
+            'Germany': 'Berlin',
+            'Russia': 'Moscow'
+        };
+
+        for (let name in countries) {
+            createCountry(name, countries[name]);
+        }
+        fixLinks();
+
+        function addCountry(e) {
+            e.preventDefault();
+            let name = $('#newCountryText').val();
+            let capital = $('#newCapitalText').val();
+            createCountry(name, capital);
+            fixLinks();
+        }
+        
+        function fixLinks() {
+            $('#countriesTable a').css('display', '');
+            $('#countriesTable tr:last-child td:last-child a:contains(Down)').css('display', 'none');
+            $('#countriesTable tr:eq(2) td:last-child a:contains(Up)').css('display', 'none');
+        }
+        
+        function createCountry(name, capital) {
+            function moveUp(e) {
+                let currentRow = $(e.target).closest('tr');
+                currentRow.insertBefore(currentRow.prev());
+                fixLinks();
+            }
+
+            function moveDown(e) {
+                let currentRow = $(e.target).closest('tr');
+                currentRow.insertAfter(currentRow.next());
+                fixLinks();
+            }
+
+            function deleteRow(e) {
+                e.preventDefault();
+                $(e.target).closest('tr').remove();
+                fixLinks();
+            }
+
+            $(`<tr>`)
+                .append($(`<td>${name}</td>`))
+                .append($(`<td>${capital}</td>`))
+                .append($(`<td>`)
+                    .append($(`<a href="#">[Up]</a> `).click(moveUp))
+                    .append($(`<a href="#">[Down]</a> `).click(moveDown))
+                    .append($(`<a href="#">[Delete]</a>`).click(deleteRow))
+                )
+                .appendTo($('#countriesTable'));
+        }
+
+        $('#createLink').click(addCountry);
+    }
+</script>
+</body>
+</html>
