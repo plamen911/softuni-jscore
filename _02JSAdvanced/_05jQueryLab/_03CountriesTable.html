@@ -79,8 +79,10 @@
                 .append($(`<td>${name}</td>`))
                 .append($(`<td>${capital}</td>`))
                 .append($(`<td>`)
-                    .append($(`<a href="#">[Up]</a> `).click(moveUp))
-                    .append($(`<a href="#">[Down]</a> `).click(moveDown))
+                    .append($(`<a href="#">[Up]</a>`).click(moveUp))
+                    .append(` `)
+                    .append($(`<a href="#">[Down]</a>`).click(moveDown))
+                    .append(` `)
                     .append($(`<a href="#">[Delete]</a>`).click(deleteRow))
                 )
                 .appendTo($('#countriesTable'));
