@@ -26,6 +26,7 @@ function validate() {
         } else {
             validationDiv.css('display', 'none');
         }
+        isAllValid = true;
     });
 
     function validateForm() {
