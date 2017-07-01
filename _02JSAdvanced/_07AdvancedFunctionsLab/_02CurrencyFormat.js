@@ -20,25 +20,6 @@
 //
 // }
 
-function solve(func) {
-    let separator = ',';
-    let symbol = '$';
-    let symbolFirst = true;
-
-    // function result(func) {
-    //     return function(value) {
-    //         return func(separator, symbol, symbolFirst, value);
-    //     }
-    // }
-    // return result(func);
-
-    return (function(func) {
-        return function(value) {
-            return func(separator, symbol, symbolFirst, value);
-        }
-    })(func);
-}
-
 function currencyFormatter(separator, symbol, symbolFirst, value) {
     let result = Math.trunc(value) + separator;
     result += value.toFixed(2).substr(-2, 2);
