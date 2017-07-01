@@ -17,15 +17,15 @@
 })();*/
 
 function getArticleGenerator(articles) {
-    // let contentHolder = $('#content');
+    let contentHolder = $('#content');
     let articlesToPrint = Object.assign([], articles);
 
     return function () {
         if (articlesToPrint.length > 0) {
             let article = $('<article>');
             article.append($(`<p>${articlesToPrint.shift()}</p>`));
-            // contentHolder.append(article);
-            $('#content').append(article);
+            contentHolder.append(article);
+            // $('#content').append(article);
         }
     }
 }
