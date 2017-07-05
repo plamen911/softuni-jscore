@@ -173,3 +173,51 @@ function solve(input) {
 `Math.trunc(...)` - like Math.floor for positive numbers, and like Math.ceil for negative
 
 
+```
+// "Module" Pattern (with Closure)
+
+let module = (function () {
+    let count = 0; // private
+    return {
+        increase: (num) => count += num,
+        decrease: (num) => count -= num,
+        value: () => count,
+    };
+})();
+
+console.log(module.value()); // 0
+console.log(module.increase(5)); // 5
+console.log(module.decrease(2)); // 3
+console.log(module.count); // undefined (not accessible)
+```
+
+```
+// "Revealing Module" Pattern (with Closure)
+
+let revModule = (function () {
+    let count = 0; // private
+    function change(amount) {
+        return count += amount;
+    }
+
+    function increase(num) {
+        return change(num);
+    }
+
+    function decrease(num) {
+        return change(-num);
+    }
+
+    function value() {
+        return count;
+    }
+
+    return {increase, decrease, value};
+})();
+
+console.log(revModule.value()); // 0
+console.log(revModule.increase(5)); // 5
+console.log(revModule.decrease(2)); // 3
+console.log(module.count); // undefined (not accessible)
+```
+
