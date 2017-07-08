@@ -213,7 +213,7 @@ let revModule = (function () {
     }
 
     return {increase, decrease, value};
-})();
+})();__
 
 console.log(revModule.value()); // 0
 console.log(revModule.increase(5)); // 5
