@@ -1,66 +1,46 @@
-// https://judge.softuni.bg/Contests/Compete/Index/301#4
-'use strict';
-
-String.prototype.ensureStart = function (str) {
-    let newString = this;
-    if (newString.indexOf(str) !== 0) {
-        newString = str + newString;
-    }
-    return newString;
-};
-
-String.prototype.ensureEnd = function (str) {
-    let newString = this;
-    if (newString.slice(-str.length) !== str) {
-        newString = newString + str;
-    }
-    return newString;
-};
-
-String.prototype.isEmpty = function () {
-    return this.length === 0;
-};
-
-String.prototype.truncate = function (n) {
-    let newString = this;
-    if (n < 4) {
-        return '.'.repeat(n);
-    }
-    if (newString.length <= n) {
-        return newString;
-    }
-
-    let words = newString.split(' ').filter(a => a !== '');
-    let tmpWords = [];
-    let lastString = '';
-    for (let i = 0; i < words.length; i++) {
-        tmpWords.push(words[i]);
-        let str = tmpWords.join(' ') + '...';
-        if (str.length > n && lastString.length) {
-            return lastString;
+(function stringExtension() {
+    String.prototype.ensureStart = function (str) {
+        if (!this.toString().startsWith(str)) {
+            return str + this.toString();
         }
-        lastString = str;
+        return this.toString();
+    };
+
+    String.prototype.ensureEnd = function (str) {
+        if (!this.toString().endsWith(str)) {
+            return this.toString() + str;
+        }
+        return this.toString();
+    };
+
+    String.prototype.isEmpty = function () {
+        return this.toString().localeCompare("") == 0;
+    };
+
+    String.prototype.truncate = function (n) {
+        if (n <= 3) {
+            return ".".repeat(n);
+        }
+        if (this.toString().length <= n) {
+            return this.toString();
+        } else {
+            let lastIndex = this.toString().substr(0, n - 2).lastIndexOf(" ");
+            if (lastIndex != -1) {
+                return this.toString().substr(0, lastIndex) + "...";
+            } else {
+                return this.toString().substr(0, n - 3) + "...";
+            }
+        }
+    };
+
+    String.format = function (string, ...params) {
+        for (let i = 0; i < params.length; i++) {
+            let index = string.indexOf("{" + i + "}");
+            while (index != -1) {
+                string = string.replace("{" + i + "}", params[i]);
+                index = string.indexOf("{" + i + "}");
+            }
+        }
+        return string;
     }
-
-    return newString.slice(-(n - 3)) + '...';
-};
-
-let str = 'my string';
-str = str.ensureStart('my');
-console.log(str);
-str = str.ensureStart('hello ');
-console.log(str);
-str = str.truncate(16);
-console.log(str);
-str = str.truncate(14);
-console.log(str);
-str = str.truncate(8);
-console.log(str);
-str = str.truncate(4);
-console.log(str);
-str = str.truncate(2);
-console.log(str);
-// str = String.format('The {0} {1} fox', 'quick', 'brown');
-// str = String.format('jumps {0} {1}', 'dog');
-
-//let str = 'hello...';
+})();
