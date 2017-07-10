@@ -12,7 +12,7 @@ document.body.innnerHTML = `<body> 
 
 describe('Testing example', () => {
    it ('text box test', () => {
-       expect
+       // expect
 
    });
 
