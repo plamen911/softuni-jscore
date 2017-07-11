@@ -8,7 +8,8 @@ class Rat {
     }
 
     unite(otherRat) {
-        if (typeof otherRat === 'object' && otherRat.constructor.name === 'Rat') {
+        if (otherRat instanceof Rat) {
+        // if (typeof otherRat === 'object' && otherRat.constructor.name === 'Rat') {
             this.unitedRats.push(otherRat);
         }
     }
