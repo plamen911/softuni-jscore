@@ -221,3 +221,14 @@ console.log(revModule.decrease(2)); // 3
 console.log(module.count); // undefined (not accessible)
 ```
 
+`n` - list all installed NodeJS versions
+
+`sudo n rm 5.3.0` - uninstall specific NodeJS version
+
+`sudo npm update -g npm` - update npm
+
+
+
+
+
+

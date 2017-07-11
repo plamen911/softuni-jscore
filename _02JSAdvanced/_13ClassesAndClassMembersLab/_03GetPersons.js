@@ -1,3 +1,26 @@
-/**
- * Created by apple on 7/10/17.
- */
+// https://judge.softuni.bg/Contests/Compete/Index/336#1
+'use strict';
+
+function getPeople() {
+    class Person {
+        constructor(firstName, lastName, age, email) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.email = email;
+        }
+
+        toString() {
+            return `${this.firstName } ${this.lastName } (age: ${this.age }, email: ${this.email })`;
+        }
+    }
+
+    return [
+        new Person("Maria", "Petrova", 22, "mp@yahoo.com"),
+        new Person("SoftUni"),
+        new Person("Stephan", "Nikolov", 25),
+        new Person("Peter", "Kolev", 24, "ptr@gmail.com")
+    ];
+}
+
+console.log(getPeople().join('\n'));
