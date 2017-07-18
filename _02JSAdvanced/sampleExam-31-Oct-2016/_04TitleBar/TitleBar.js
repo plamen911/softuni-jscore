@@ -33,7 +33,7 @@ class TitleBar {
 
         linkButton.on('click', (e) => {
             e.preventDefault();
-            if (drawer.css('display') == 'none') {
+            if (drawer.css('display') === 'none') {
                 drawer.css('display', 'block');
             } else {
                 drawer.css('display', 'none');
