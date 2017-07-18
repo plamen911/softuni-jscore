@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="content">
+        <p><strong>The Theodor Pallady Museum </strong>is a museum situated in one of the oldest surviving merchant
+            houses in Bucharest, Romania. It <strong>includes many works by the </strong>well-known Romanian <strong>painter
+                Theodor Pallady</strong>, as well as a number of European and Oriental furniture pieces.</p>
+    </div>
+    <input type="button" id="generate" value="Generate Summary"/>
+</div>
+<script>
+    function solve(buttonSelector) {
+        function generateSummary() {
+            let content = document.querySelector('#content');
+            let str = content.innerHTML;
+            // find all highlighted parts of the text
+            const regex = /<strong>(.*?)<\/strong>/g;
+            let m;
+            let results = [];
+            while ((m = regex.exec(str)) !== null) {
+                // This is necessary to avoid infinite loops with zero-width matches
+                if (m.index === regex.lastIndex) {
+                    regex.lastIndex++;
+                }
+                results.push(m[1]);
+            }
+
+            let div = document.createElement('DIV');
+            div.setAttribute('id', 'summary');
+
+            let h2 = document.createElement('H2');
+            h2.innerHTML = 'Summary';
+
+            let p = document.createElement('P');
+            p.innerHTML = results.join('');
+
+            div.appendChild(h2);
+            div.appendChild(p);
+
+            content.parentNode.appendChild(div);
+        }
+
+        let button = document.querySelector(buttonSelector);
+        button.addEventListener('click', generateSummary);
+    }
+
+    solve('#generate');
+
+</script>
+</body>
+</html>
