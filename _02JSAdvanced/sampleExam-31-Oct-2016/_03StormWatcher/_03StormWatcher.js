@@ -24,11 +24,6 @@ let Record = (() => {
         }
 
         toString() {
-            let weatherStatus = 'Not stormy';
-            if (this.temperature < 20 && (this.pressure < 700 || this.pressure > 900) && this.windSpeed > 25) {
-                weatherStatus = 'Stormy';
-            }
-
             let result = [];
             result.push(`Reading ID: ${this.id}`);
             result.push(`Temperature: ${this.temperature}*C`);
@@ -69,11 +64,6 @@ class Record1 {
     }
 
     toString() {
-        let weatherStatus = 'Not stormy';
-        if (this.temperature < 20 && (this.pressure < 700 || this.pressure > 900) && this.windSpeed > 25) {
-            weatherStatus = 'Stormy';
-        }
-
         let result = [];
         result.push(`Reading ID: ${this.id}`);
         result.push(`Temperature: ${this.temperature}*C`);
