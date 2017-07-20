@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../_02JSAdvanced/_17Modules/_02MapSort/app.js"],"names":["mapSort"],"mappings":"QAEsB,kB,aAAlBA,O;AAFJ;AACA","file":"app.js","sourcesContent":["// https://judge.softuni.bg/Contests/Compete/Index/342#1\n'use strict';\nlet mapSort = require('helper-functions');\n\n// result.mapSort = mapSort;\n"]}

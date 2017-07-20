@@ -227,8 +227,32 @@ console.log(module.count); // undefined (not accessible)
 
 `sudo npm update -g npm` - update npm
 
+`npm install requirejs --save`
 
+`npm install systemjs --save` - NodeJS like require external files
 
+```
+<!-- load the library in your host HTML -->
+<script src="./node_modules/systemjs/dist/system.js"></script>
+<!-- configure and load your app's path -->
+<!-- Notice: include .js file extension when require js files -->
+<script>
+   System.config({ meta: { format: 'cjs' } });
+   System.import('./app.js');
+</script>
+```
+
+`npm install --save-dev babel-cli -g`
+
+Configuring Babel for AMD and RequireJS
+
+- Download the plugin from WebStorm's terminal
+
+`npm install --save-dev babel-plugin-transform-es2015-modules-amd`
+
+- Create a .babelrc configuration file in the project's root
+
+`echo { "plugins": ["transform-es2015-modules-amd"] } > .babelrc`
 
 
 
