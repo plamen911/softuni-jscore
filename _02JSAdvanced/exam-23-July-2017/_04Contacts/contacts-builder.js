@@ -13,9 +13,19 @@ class Contact {
 
     set online(value) {
         this._online = value;
+
+        if (typeof this._divTitle !== 'undefined') {
+            let divTitle = this._divTitle;
+            if (this.online) {
+                divTitle.addClass('online');
+            } else {
+                divTitle.removeClass('online');
+            }
+        }
     }
 
     render(id) {
+        this._id = id;
         let divInfo = $('<div>').addClass('info').css('display', 'none');
         let spanPhone = $('<span>').html('&phone; ' + this.phone);
         let spanEmail = $('<span>').html('&#9993; ' + this.email);
@@ -32,6 +42,7 @@ class Contact {
             divInfo.toggle();
         });
         divTitle.append(button);
+        this._divTitle = divTitle;
 
         let article = $('<article>');
         article.append(divTitle);
@@ -49,4 +60,9 @@ let contacts = [
 contacts.forEach(c => c.render('main'));
 
 // After 1 second, change the online status to true
-setTimeout(() => contacts[1].online = true, 2000);
+setTimeout(() => {
+    console.log(contacts[1]);
+    contacts[1].online = true
+}, 2000);
+
+
