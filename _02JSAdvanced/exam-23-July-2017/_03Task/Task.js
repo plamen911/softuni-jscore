@@ -50,8 +50,16 @@ class Task {
         let completeStatusA = (a.status === 'Complete') ? 1 : -1;
         let completeStatusB = (b.status === 'Complete') ? 1 : -1;
 
-        if (a.status === b.status || a.isOverdue === b.isOverdue) {
-            return a.deadline.getTime() - b.deadline.getTime();
+        if (a.isOverdue === b.isOverdue === true && a.status !== 'Complete' && b.status !== 'Complete') {
+            if (a.deadline.getTime() !== b.deadline.getTime()) {
+                return a.deadline.getTime() - b.deadline.getTime();
+            }
+        }
+
+        if (a.status === b.status) {
+            if (a.deadline.getTime() !== b.deadline.getTime()) {
+                return a.deadline.getTime() - b.deadline.getTime();
+            }
         }
 
         if (isOverdueA > isOverdueB) return -1;
@@ -120,9 +128,8 @@ setTimeout(() => { 
  }, 1000); // Sort and print one second later
 
 // should throw an Error
-/*let overdueTask = new Task('Overdue Task', new Date(2005, '4', '20'));
+// let overdueTask = new Task('Overdue Task', new Date(2005, '4', '20'));
 // should throw an Error
 task1.deadline = new Date(2005, '4', '20');
 
-*/
 
