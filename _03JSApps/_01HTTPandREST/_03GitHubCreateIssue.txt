@@ -1,0 +1,46 @@
+{
+  "url": "https://api.github.com/repos/testnakov/test-nakov-repo/issues/206",
+  "repository_url": "https://api.github.com/repos/testnakov/test-nakov-repo",
+  "labels_url": "https://api.github.com/repos/testnakov/test-nakov-repo/issues/206/labels{/name}",
+  "comments_url": "https://api.github.com/repos/testnakov/test-nakov-repo/issues/206/comments",
+  "events_url": "https://api.github.com/repos/testnakov/test-nakov-repo/issues/206/events",
+  "html_url": "https://github.com/testnakov/test-nakov-repo/issues/206",
+  "id": 245322294,
+  "number": 206,
+  "title": "Found a bug",
+  "user": {
+    "login": "plamen911",
+    "id": 350980,
+    "avatar_url": "https://avatars1.githubusercontent.com/u/350980?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/plamen911",
+    "html_url": "https://github.com/plamen911",
+    "followers_url": "https://api.github.com/users/plamen911/followers",
+    "following_url": "https://api.github.com/users/plamen911/following{/other_user}",
+    "gists_url": "https://api.github.com/users/plamen911/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/plamen911/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/plamen911/subscriptions",
+    "organizations_url": "https://api.github.com/users/plamen911/orgs",
+    "repos_url": "https://api.github.com/users/plamen911/repos",
+    "events_url": "https://api.github.com/users/plamen911/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/plamen911/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignee": null,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 0,
+  "created_at": "2017-07-25T08:24:19Z",
+  "updated_at": "2017-07-25T08:24:19Z",
+  "closed_at": null,
+  "body": "I'm having a problem with this.",
+  "closed_by": null
+}
