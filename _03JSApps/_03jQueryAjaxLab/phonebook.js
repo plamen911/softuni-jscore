@@ -4,7 +4,6 @@ $(() => {
 
     let baseServiceUrl = `https://phonebookmarkov.firebaseio.com/phonebook`;
 
-
     function loadContacts() {
         $('#phonebook').empty();
         $.get(baseServiceUrl + '.json')
