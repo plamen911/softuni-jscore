@@ -254,5 +254,13 @@ Configuring Babel for AMD and RequireJS
 
 `echo { "plugins": ["transform-es2015-modules-amd"] } > .babelrc`
 
+Window btoa() Method - Encode a string in base-64
 
+```
+var str = "Hello World!";
+var enc = window.btoa(str);
+
+var res = "Encoded String: " + enc;
+// Encoded String: SGVsbG8gV29ybGQh
+```
 
