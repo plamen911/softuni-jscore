@@ -1,15 +1,16 @@
 function attachEvents() {
-    let appKey = `kid_SJFuHh4Ub`;
-    let hostUrl = `https://baas.kinvey.com/appdata/${appKey}/biggestCatches`;
+    const APP_KEY = `kid_SJFuHh4Ub`;
+    const USER_ENCRYPT = btoa('guest:guest');
+    const BASE_URL = `https://baas.kinvey.com/appdata/${APP_KEY}/biggestCatches`;
 
     let defaultRequest = {
-        url: hostUrl,
+        url: BASE_URL,
         method: 'GET',
         headers: {
-            'Authorization': 'Basic a2lkX1NKRnVIaDRVYjoxNDdhNjI1YWUzMjc0MzNjYTJjYjc4MTRiODE5NzFlZg==',
-            //'Authorization': 'Basic Secret',
+            'Authorization': 'Basic ' + USER_ENCRYPT,
             'X-Kinvey-API-Version': 3
-        }
+        },
+        contentType: 'application/json'
     };
 
     function loadCatches() {
@@ -48,16 +49,16 @@ function attachEvents() {
 
                 function updateCatches() {
                     let request = Object.assign({}, defaultRequest);
-                    request.url = hostUrl + '/' + entry._id;
+                    request.url = BASE_URL + '/' + entry._id;
                     request.method = 'PUT';
-                    request.data = {
+                    request.data = JSON.stringify({
                         "angler": anglerInput.val(),
-                        "weight": weightInput.val(),
+                        "weight": Number(weightInput.val()),
                         "species": speciesInput.val(),
                         "location": locationInput.val(),
                         "bait": baitInput.val(),
-                        "captureTime": captureTimeInput.val()
-                    };
+                        "captureTime": Number(captureTimeInput.val())
+                    });
 
                     updateBtn.prop('disabled', true).text('wait...');
 
@@ -78,7 +79,7 @@ function attachEvents() {
 
                 function deleteCatches() {
                     let request = Object.assign({}, defaultRequest);
-                    request.url = hostUrl + '/' + entry._id;
+                    request.url = BASE_URL + '/' + entry._id;
                     request.method = 'DELETE';
 
                     deleteBtn.prop('disabled', true).text('wait...');
@@ -99,7 +100,7 @@ function attachEvents() {
             .catch(displayError)
     }
 
-    function addCatches() {
+    function addNewCatch() {
         let anglerInput = $('#addForm .angler');
         let weightInput = $('#addForm .weight');
         let speciesInput = $('#addForm .species');
@@ -114,16 +115,16 @@ function attachEvents() {
         }
 
         let request = Object.assign({}, defaultRequest);
-        request.url = hostUrl;
+        request.url = BASE_URL;
         request.method = 'POST';
-        request.data = {
+        request.data = JSON.stringify({
             "angler": anglerInput.val(),
-            "weight": weightInput.val(),
+            "weight": Number(weightInput.val()),
             "species": speciesInput.val(),
             "location": locationInput.val(),
             "bait": baitInput.val(),
-            "captureTime": captureTimeInput.val()
-        };
+            "captureTime": Number(captureTimeInput.val())
+        });
 
         let addBtn = $(this);
         addBtn.prop('disabled', true).text('wait...');
@@ -150,5 +151,5 @@ function attachEvents() {
     }
 
     $('.load').click(loadCatches);
-    $('.add').click(addCatches);
+    $('.add').click(addNewCatch);
 }
