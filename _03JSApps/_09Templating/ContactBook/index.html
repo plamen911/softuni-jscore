@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Book</title>
+    <link rel="stylesheet" href="style/site.css">
+    <link rel="stylesheet" href="style/contact.css">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header>&#9993; Contact Book</header>
+    <div id="book">
+        <div id="list">
+            <h1>Contacts</h1>
+            <div class="content"></div>
+        </div>
+        <div id="details">
+            <h1>Details</h1>
+            <div class="content"></div>
+        </div>
+    </div>
+    <footer>Contact Book SPA &copy; 2017</footer>
+</div>
+
+<script id="contact-list-template" type="text/x-handlebars-template">
+    {{#each contacts}}
+        {{> contact}}
+    {{else}}
+        <p><i>No contacts</i></p>
+    {{/each}}
+</script>
+
+<script id="contact-item-template" type="text/x-handlebars-template">
+    <div class="contact" data-id="{{@index}}">
+        <span class="avatar small">&#9787;</span>
+        <span class="title">{{ firstName }} {{ lastName }}</span>
+    </div>
+</script>
+
+<script id="contact-details-template" type="text/x-handlebars-template">
+    <div class="info">
+        <div class="col">
+            <span class="avatar">&#9787;</span>
+        </div>
+        <div class="col">
+            <span class="name">{{ firstName }}</span>
+            <span class="name">{{ lastName }}</span>
+        </div>
+    </div>
+    <div class="info">
+        <span class="info-line">&phone; {{ phone }}</span>
+        <span class="info-line">&#9993; {{ email }}</span>
+    </div>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div id="main"></div>
+<script>
+    $(() => {
+        const main = $('#main');
+        getTemplate();
+
+
+
+        async function getTemplate() {
+            let template = await $.get('greeting.html');
+            console.log('template: ', template);
+            console.log('after template is loaded');
+            main.html(template);
+        }
+
+        function parse(htmlAsString, context) {
+            return htmlAsString.replace(/{{\s*(\w+)\s*}}/g, (m, g1) => {
+                if (context.hasOwnProperty(g1)) {
+                    return context[g1];
+                } else {
+                    return m;
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
