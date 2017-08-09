@@ -6,7 +6,7 @@ function attachEvents() {
 
     $('#btnLoadTowns').on('click', e => {
         let towns = sourceElem.val().split(',').map(a => a.toString().trim()).filter(a => a !== '');
-        let townsHtml = townsTemplate({towns: towns});
+        let townsHtml = townsTemplate({towns});
         outputElem.empty().append(townsHtml);
     });
 }
