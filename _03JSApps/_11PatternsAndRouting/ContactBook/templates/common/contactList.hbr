@@ -1,0 +1,5 @@
+{{#each contacts}}
+    {{> contact}}
+{{else}}
+    <span style="font-style: italic;">No contacts.</span>
+{{/each}}
